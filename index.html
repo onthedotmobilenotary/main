@@ -15,15 +15,25 @@
     header {
       background-color: #173952;
       color: #fff;
-      padding: 20px 40px;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    header h1 {
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo-container h1 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
 
     nav a {
@@ -42,7 +52,7 @@
     }
 
     .hero img {
-      max-width: 100%;
+      max-width: 80%;
       height: auto;
       border-radius: 5px;
     }
@@ -101,12 +111,23 @@
         flex-direction: column;
         align-items: center;
       }
+
+      .hero img {
+        max-width: 100%;
+      }
+
+      .logo-container h1 {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>On The Dot Mobile Notary</h1>
+    <div class="logo-container">
+      <img src="./images/on the dot car logo (1).png" alt="On The Dot Logo" />
+      <h1>On The Dot Mobile Notary Spokane</h1>
+    </div>
     <nav>
       <a href="#about">About</a>
       <a href="#services">Services</a>
@@ -118,7 +139,7 @@
     <img src="./images/AdobeStock_659835811.jpeg" alt="Notary Signing Documents" />
     <h2>Mobile Notary Service</h2>
     <p>Experienced & Trusted Notary Public</p>
-    <a href="#contact" class="btn">Schedule an Appointments</a>
+    <a href="#contact" class="btn">Schedule an Appointment</a>
   </section>
 
   <section class="sections">
@@ -131,7 +152,6 @@
         same-day appointments available, we bring the notary office to your home, office, or 
         favorite coffee shop. Whether you need a single notarization or a full loan package, 
         we ensure every signing is handled with accuracy, confidentiality, and care.
-
       </p>
     </div>
     <div class="section" id="services">
@@ -140,7 +160,6 @@
         <li>Acknowledgements</li>
         <li>Jurats</li>
         <li>Oaths & Affirmations</li>
-       
       </ul>
     </div>
     <div class="section" id="contact">
