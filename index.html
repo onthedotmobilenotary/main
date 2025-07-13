@@ -14,7 +14,7 @@
 
     header {
       background-color: #fff;
-      color: #0000;
+      color: #000;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
@@ -29,11 +29,6 @@
     .logo-container img {
       height: 100px;
       margin-right: 10px;
-    }
-
-    .logo-container h1 {
-      margin: 0;
-      font-size: 1.3rem;
     }
 
     nav a {
@@ -100,6 +95,48 @@
       margin-top: 0;
     }
 
+    form {
+      margin-top: 20px;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #173952;
+      box-shadow: 0 0 5px rgba(23, 57, 82, 0.5);
+    }
+
+    form label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    form button.btn {
+      width: auto;
+      cursor: pointer;
+    }
+
+    #thank-you-message {
+      display: none;
+      background-color: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 4px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -121,12 +158,13 @@
       }
     }
   </style>
+  <!-- Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <header>
     <div class="logo-container">
       <img src="./images/on the dot car logo (1).png" alt="On The Dot Logo" />
-      <!--<h1>On The Dot Mobile Notary Spokane</h1>-->
     </div>
     <nav>
       <a href="#about">About</a>
@@ -137,7 +175,7 @@
 
   <section class="hero">
     <img src="./images/AdobeStock_659835811.jpeg" alt="Notary Signing Documents" />
-    <h2>Mobile Notary Service</h2>
+    <h2>Spokane Mobile Notary Service</h2>
     <p>Experienced & Trusted Notary Public</p>
     <a href="#contact" class="btn">Schedule an Appointment</a>
   </section>
@@ -165,11 +203,38 @@
     <div class="section" id="contact">
       <h3>Get in Touch</h3>
       <p>Contact On The Dot Mobile Notary for prompt and professional notary services at your convenience.</p>
+      <form action="https://formsubmit.co/onthedotnotaryspokane@gmail.com" method="POST" id="contact-form">
+        <input type="hidden" name="_subject" value="New Notary Service Inquiry">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="#thank-you-message">
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <!-- reCAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <div id="thank-you-message">Thank you for reaching out! We'll get back to you shortly.</div>
     </div>
   </section>
 
   <footer>
     &copy; 2025 On The Dot Mobile Notary Service. All rights reserved.
   </footer>
+
+  <script>
+    // Show thank-you message on redirect
+    if (window.location.hash === "#thank-you-message") {
+      document.getElementById("thank-you-message").style.display = "block";
+    }
+  </script>
 </body>
 </html>
