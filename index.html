@@ -14,21 +14,14 @@
 
     header {
       background-color: #fff;
-      color: #000;
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-
     .logo-container img {
       height: 100px;
-      margin-right: 10px;
     }
 
     nav a {
@@ -39,11 +32,8 @@
     }
 
     .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
       text-align: center;
+      padding: 40px 20px;
     }
 
     .hero img {
@@ -58,7 +48,7 @@
     }
 
     .hero p {
-      margin: 0 0 20px;
+      margin-bottom: 20px;
       font-size: 1.1rem;
     }
 
@@ -68,8 +58,9 @@
       padding: 12px 24px;
       border: none;
       border-radius: 4px;
-      text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
       transition: background-color 0.3s;
     }
 
@@ -81,7 +72,6 @@
       display: flex;
       flex-wrap: wrap;
       padding: 40px 20px;
-      justify-content: space-between;
       gap: 20px;
     }
 
@@ -106,35 +96,20 @@
       margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 4px;
-      font-family: inherit;
-      transition: all 0.3s ease;
+      transition: border-color 0.3s, box-shadow 0.3s;
     }
 
     form input:focus,
     form textarea:focus {
       border-color: #173952;
       box-shadow: 0 0 5px rgba(23, 57, 82, 0.5);
+      outline: none;
     }
 
     form label {
       font-weight: bold;
       display: block;
       margin-bottom: 5px;
-    }
-
-    form button.btn {
-      width: auto;
-      cursor: pointer;
-    }
-
-    #thank-you-message {
-      display: none;
-      background-color: #d4edda;
-      color: #155724;
-      padding: 15px;
-      border-radius: 4px;
-      margin-top: 20px;
-      text-align: center;
     }
 
     footer {
@@ -144,17 +119,12 @@
     }
 
     @media (max-width: 768px) {
-      .sections {
-        flex-direction: column;
-        align-items: center;
-      }
-
       .hero img {
         max-width: 100%;
       }
 
-      .logo-container h1 {
-        font-size: 1rem;
+      .sections {
+        flex-direction: column;
       }
     }
   </style>
@@ -172,7 +142,7 @@
   </header>
 
   <section class="hero">
-    <img src="./images/AdobeStock_659835811.jpeg" alt="Notary Signing Documents" />
+    <img src="./images/AdobeStock_659835811.jpeg" alt="Notary Signing Documents">
     <h2>Spokane Mobile Notary Service</h2>
     <p>Experienced & Trusted Notary Public</p>
     <a href="#contact" class="btn">Schedule an Appointment</a>
@@ -181,7 +151,8 @@
   <section class="sections">
     <div class="section" id="about">
       <h3>About Me</h3>
-      <p>At On The Dot Mobile Notary, we make notarizing your important documents easy, 
+      <p>
+        At On The Dot Mobile Notary, we make notarizing your important documents easy, 
         convenient, and stress-free — right at your location. Serving Spokane, Spokane Valley, 
         and surrounding areas, we specialize in loan signings, real estate documents, power of 
         attorney forms, affidavits, and more. With flexible hours, professional service, and 
@@ -190,6 +161,7 @@
         we ensure every signing is handled with accuracy, confidentiality, and care.
       </p>
     </div>
+
     <div class="section" id="services">
       <h3>Our Services</h3>
       <ul>
@@ -198,42 +170,36 @@
         <li>Oaths & Affirmations</li>
       </ul>
     </div>
+
     <div class="section" id="contact">
       <h3>Get in Touch</h3>
       <p>Contact On The Dot Mobile Notary for prompt and professional notary services at your convenience.</p>
-      <form action="b176b5a1e697bc40d8b75969c46395f2" method="POST">
+
+      <form action="https://formspree.io/f/mqalelpa" method="POST">
+        <input type="hidden" name="_subject" value="New Notary Service Inquiry">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_redirect" value="thank-you.html">
+
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required>
-      
+
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
-      
+
         <label for="phone">Phone Number</label>
         <input type="tel" id="phone" name="phone" required>
-      
+
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="5" required></textarea>
-      
-        <!-- reCAPTCHA block goes here -->
-        <div class="g-recaptcha" data-sitekey="6Lc2lYIrAAAAAJ68XmCUTQZgV3JSRXhvcqQ9gSXk"></div>
-      
+
         <button type="submit" class="btn">Send Message</button>
       </form>
-      
-      <div id="thank-you-message">Thank you for reaching out! We'll get back to you shortly.</div>
     </div>
   </section>
 
   <footer>
     &copy; 2025 On The Dot Mobile Notary Service. All rights reserved.
   </footer>
-
-  <script>
-    // Show thank-you message on redirect
-    if (window.location.hash === "#thank-you-message") {
-      document.getElementById("thank-you-message").style.display = "block";
-    }
-  </script>
 </body>
 </html>
 
